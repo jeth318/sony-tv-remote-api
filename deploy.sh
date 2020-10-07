@@ -2,7 +2,7 @@
 BRANCH_NAME=$1;
 
 if [[ $BRANCH_NAME == "master" ]]; then
-	cd /home/pi/Apps/hue-control/api
+	cd /home/pi/Apps/sony-tv-remote/api
 else
 	exit 0;
 fi
@@ -17,15 +17,14 @@ echo "Pulling from ${BRANCH_NAME}"
 git pull origin ${BRANCH_NAME}
 echo "Pulled successfully"
 
-
 echo "Installing dependencies"
 npm install
 echo "Project dependencies was installed"
 
-echo "Rebooting Hue-Control API"
+echo "Rebooting Sony-Tv-Remote API"
 
 if [[ $BRANCH_NAME == "master" ]]; then
-	echo "pm2 restart hue-control-api"
+	echo "pm2 restart sony-tv-remote-api"
 else
     exit 0;
 fi

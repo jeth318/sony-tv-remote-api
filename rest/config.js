@@ -1,6 +1,5 @@
 
-const { config } = require('dotenv');
-config();
+
 const { PROTOCOL, HOST } = process.env;
 const baseUrl = `${PROTOCOL}://${HOST}/sony`;
 const headers = {
