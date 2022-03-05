@@ -2,7 +2,7 @@
 BRANCH_NAME=$1;
 
 if [[ $BRANCH_NAME == "master" ]]; then
-	cd /home/pi/Apps/sony-tv-remote/api
+	cd /home/pi/apps/sony-tv-remote/api
 else
 	exit 0;
 fi

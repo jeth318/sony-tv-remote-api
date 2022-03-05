@@ -1,7 +1,6 @@
 const axios = require('axios');
 const { baseUrl, irccHeaders, getIsTurnedOnConfig, getIrccConfig } = require('./config.js');
 const { xmlStringGenerator } = require('../utils/ircc-util');
-console.log(baseUrl);
 
 const serverStatus = (req, res) => res.send("UP"); 
 
