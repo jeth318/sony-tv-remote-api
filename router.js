@@ -8,8 +8,8 @@ const {
 } = require("./rest/resource");
 
 const router = express.Router(); // eslint-disable-line new-cap
-router.post("/ircc", sendIRCCCommand);
-router.get("/power", getPowerStatus);
-router.get("/", serverStatus);
+router.post("/tv/ircc", sendIRCCCommand);
+router.get("/tv/power", getPowerStatus);
+router.get("/tv", serverStatus);
 
 module.exports = router;
