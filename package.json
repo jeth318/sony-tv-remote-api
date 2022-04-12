@@ -3,8 +3,13 @@
   "version": "1.0.0",
   "description": "Integration API towards sony tv",
   "main": "index.js",
+  "simple-git-hooks": {
+    "pre-push": "./deploy.sh"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "./node_modules/esbuild/bin/esbuild server.js --platform=node --bundle --outfile=dist/app.cjs",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "rm -rf .git/hooks/ && npx simple-git-hooks"
   },
   "author": "Jesper Thörnberg",
   "license": "ISC",
@@ -14,5 +19,9 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "esbuild": "^0.14.36",
+    "simple-git-hooks": "^2.7.0"
   }
 }
