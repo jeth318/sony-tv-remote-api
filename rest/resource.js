@@ -1,15 +1,10 @@
-const axios = require("axios");
-const {
-  baseUrl,
-  irccHeaders,
-  getIsTurnedOnConfig,
-  getIrccConfig,
-} = require("./config.js");
-const { xmlStringGenerator } = require("../utils/ircc-util");
+import axios from "axios";
+import { getIsTurnedOnConfig, getIrccConfig } from "./config.js";
+import { xmlStringGenerator } from "../utils/ircc-util.js";
 
-const serverStatus = (req, res) => res.send("UP");
+export const serverStatus = (req, res) => res.send("UP");
 
-const getPowerStatus = async (req, res) => {
+export const getPowerStatus = async (req, res) => {
   try {
     const data = await isTurnedOn();
     return res.json({ success: true, active: data.active });
@@ -18,7 +13,7 @@ const getPowerStatus = async (req, res) => {
   }
 };
 
-const sendIRCCCommand = async (req, res) => {
+export const sendIRCCCommand = async (req, res) => {
   const { code } = req.body;
   const data = xmlStringGenerator(code);
   try {
@@ -30,7 +25,7 @@ const sendIRCCCommand = async (req, res) => {
   }
 };
 
-const isTurnedOn = async (req, res) => {
+export const isTurnedOn = async (req, res) => {
   try {
     const response = await axios(getIsTurnedOnConfig());
     return { active: response.data.result[0].status === "active" };
@@ -40,8 +35,3 @@ const isTurnedOn = async (req, res) => {
   }
 };
 
-module.exports = {
-  getPowerStatus,
-  sendIRCCCommand,
-  serverStatus,
-};

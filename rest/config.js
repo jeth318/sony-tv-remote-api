@@ -1,7 +1,5 @@
-
-
 const { PROTOCOL, HOST } = process.env;
-const baseUrl = `${PROTOCOL}://${HOST}/sony`;
+export const baseUrl = `${PROTOCOL}://${HOST}/sony`;
 const headers = {
     POST: '/sony/ircc HTTP/1.1',
     Accept: '*/*',
@@ -10,14 +8,14 @@ const headers = {
     'X-Auth-PSK': 1234,
 }
 
-const getIrccConfig = data => ({
+export const getIrccConfig = data => ({
     url: `${baseUrl}/IRCC`,
     method: 'POST',
     data,
     headers,
 });
 
-const getIsTurnedOnConfig = data => ({
+export const getIsTurnedOnConfig = data => ({
     url: `${baseUrl}/system`,
     headers,
     method: 'POST',
@@ -28,5 +26,3 @@ const getIsTurnedOnConfig = data => ({
         version: '1.0',
     }),
 });
-
-module.exports = { getIsTurnedOnConfig, getIrccConfig };

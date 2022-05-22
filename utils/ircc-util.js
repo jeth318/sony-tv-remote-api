@@ -1,4 +1,4 @@
-const xmlStringGenerator = irccCode => {
+export const xmlStringGenerator = irccCode => {
     return `
         <s:Envelope 
             xmlns:s="http://schemas.xmlsoap.org/soap/envelope/"
@@ -11,5 +11,3 @@ const xmlStringGenerator = irccCode => {
         </s:Envelope>
   `
 };
-
-module.exports = { xmlStringGenerator };

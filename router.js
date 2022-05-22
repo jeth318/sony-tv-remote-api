@@ -1,15 +1,9 @@
-const express = require("express");
-const {
-  pong,
-  sendIRCCCommand,
-  serverStatus,
-  getPowerStatus
+import { Router } from "express";
+import { sendIRCCCommand, serverStatus, getPowerStatus } from "./rest/resource.js";
 
-} = require("./rest/resource");
-
-const router = express.Router(); // eslint-disable-line new-cap
-router.post("/ircc", sendIRCCCommand);
-router.get("/power", getPowerStatus);
+const router = Router(); // eslint-disable-line new-cap
 router.get("/", serverStatus);
+router.get("/power", getPowerStatus);
+router.post("/ircc", sendIRCCCommand);
 
-module.exports = router;
+export default router;

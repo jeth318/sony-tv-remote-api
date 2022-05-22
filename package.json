@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Integration API towards sony tv",
   "main": "index.js",
+  "type": "module",
   "simple-git-hooks": {
     "pre-push": "./deploy.sh"
   },
