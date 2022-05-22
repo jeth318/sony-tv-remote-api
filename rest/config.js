@@ -1,4 +1,9 @@
+import { config } from 'dotenv';
+config();
+
 const { PROTOCOL, HOST } = process.env;
+console.log(process.env.HOST);
+
 export const baseUrl = `${PROTOCOL}://${HOST}/sony`;
 const headers = {
     POST: '/sony/ircc HTTP/1.1',
