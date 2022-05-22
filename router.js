@@ -4,12 +4,12 @@ const {
   sendIRCCCommand,
   serverStatus,
   getPowerStatus
-  
+
 } = require("./rest/resource");
 
 const router = express.Router(); // eslint-disable-line new-cap
-router.post("/tv/ircc", sendIRCCCommand);
-router.get("/tv/power", getPowerStatus);
-router.get("/tv", serverStatus);
+router.post("/ircc", sendIRCCCommand);
+router.get("/power", getPowerStatus);
+router.get("/", serverStatus);
 
 module.exports = router;
